@@ -61,5 +61,39 @@ public class ImportFileParamType : IOperationFilter
 SWaggerconfig add
 
 c.OperationFilter<ImportFileParamType>();
+    
+Controller 
+
+[ImportFileParamType.SwaggerFormAttribute("PDF", "Upload pdf file")]
+public IHttpActionResult Post(string applicationId, string documentCategory, string documentType/*, List<DocumentRequest> requests*/)
+        {
+            var files = GetFiles();
+            if (files != null && files.Count > 0)
+            {
+                using (DocumentProcessor processor = new DocumentProcessor(Queue, Repository))
+                {
+                    processor.Process(new Document()
+                    {
+                        ApplicationId = applicationId,
+                        DocumentCategory = documentCategory,
+                        DocumentType = documentType,
+                        Document = files.Get(0).InputStream
+                    });
+                }
+            }
+                
+            return Ok(/*string.Join(",",requests.Select(d=>d.File))*/);
+        }
+    private HttpFileCollection GetFiles()
+        {
+
+            var httpRequest = HttpContext.Current.Request;
+            if (httpRequest.Files.Count < 1)
+            {
+                return null;
+            }
+
+            return httpRequest.Files;
+        }
 
 ## Angular client 1-5 material design, bootstrap
