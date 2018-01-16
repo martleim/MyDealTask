@@ -1,0 +1,9 @@
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Database\bin\Debug\MyDealTask.Database.dacpac
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Database\bin\Debug\MyDealTask.Database.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Database\bin\Debug\MyDealTask.Database.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Database\obj\Debug\MyDealTask.Database.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Database\obj\Debug\MyDealTask.Database.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Database\obj\Debug\Model.xml
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Database\obj\Debug\refactor.xml
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Database\obj\Debug\postdeploy.sql
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Database\obj\Debug\predeploy.sql

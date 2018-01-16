@@ -1,0 +1,13 @@
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\MyDealTask.Test.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\MyDealTask.Test.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\MyDealTask.Business.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\MyDealTask.Contracts.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\MyDealTask.Model.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\MyDealTask.Business.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\MyDealTask.Contracts.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\MyDealTask.Model.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\obj\Debug\MyDealTask.Test.csprojResolveAssemblyReference.cache
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\obj\Debug\MyDealTask.Test.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\obj\Debug\MyDealTask.Test.pdb

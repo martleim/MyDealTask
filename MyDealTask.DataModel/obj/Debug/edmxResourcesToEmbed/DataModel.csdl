@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyDealTaskDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__RefactorLog">
+    <Key>
+      <PropertyRef Name="OperationKey" />
+    </Key>
+    <Property Name="OperationKey" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PassengerRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RecordLocatorId" Type="Int32" Nullable="false" />
+    <Property Name="LineData" Type="String" MaxLength="22" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RecordLocator" Relationship="Self.FK__Passenger__Recor__09DE7BCC" FromRole="PassengerRecord" ToRole="RecordLocator" />
+  </EntityType>
+  <EntityType Name="PNLFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="File" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="RecordLocator" Relationship="Self.FK__RecordLoc__PNLFi__0AD2A005" FromRole="PNLFile" ToRole="RecordLocator" />
+  </EntityType>
+  <EntityType Name="RecordLocator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PNLFileId" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PassengerRecord" Relationship="Self.FK__Passenger__Recor__09DE7BCC" FromRole="RecordLocator" ToRole="PassengerRecord" />
+    <NavigationProperty Name="PNLFile" Relationship="Self.FK__RecordLoc__PNLFi__0AD2A005" FromRole="RecordLocator" ToRole="PNLFile" />
+  </EntityType>
+  <Association Name="FK__Passenger__Recor__09DE7BCC">
+    <End Role="RecordLocator" Type="Self.RecordLocator" Multiplicity="1" />
+    <End Role="PassengerRecord" Type="Self.PassengerRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecordLocator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PassengerRecord">
+        <PropertyRef Name="RecordLocatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RecordLoc__PNLFi__0AD2A005">
+    <End Role="PNLFile" Type="Self.PNLFile" Multiplicity="1" />
+    <End Role="RecordLocator" Type="Self.RecordLocator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PNLFile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecordLocator">
+        <PropertyRef Name="PNLFileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyDealTaskEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
+    <EntitySet Name="PassengerRecord" EntityType="Self.PassengerRecord" />
+    <EntitySet Name="PNLFile" EntityType="Self.PNLFile" />
+    <EntitySet Name="RecordLocator" EntityType="Self.RecordLocator" />
+    <AssociationSet Name="FK__Passenger__Recor__09DE7BCC" Association="Self.FK__Passenger__Recor__09DE7BCC">
+      <End Role="RecordLocator" EntitySet="RecordLocator" />
+      <End Role="PassengerRecord" EntitySet="PassengerRecord" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RecordLoc__PNLFi__0AD2A005" Association="Self.FK__RecordLoc__PNLFi__0AD2A005">
+      <End Role="PNLFile" EntitySet="PNLFile" />
+      <End Role="RecordLocator" EntitySet="RecordLocator" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,4 @@
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Model\bin\Debug\MyDealTask.Model.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Model\bin\Debug\MyDealTask.Model.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Model\obj\Debug\MyDealTask.Model.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Model\obj\Debug\MyDealTask.Model.pdb

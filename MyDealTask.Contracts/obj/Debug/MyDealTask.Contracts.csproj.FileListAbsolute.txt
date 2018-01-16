@@ -1,0 +1,7 @@
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Contracts\bin\Debug\MyDealTask.Contracts.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Contracts\bin\Debug\MyDealTask.Contracts.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Contracts\obj\Debug\MyDealTask.Contracts.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Contracts\obj\Debug\MyDealTask.Contracts.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Contracts\obj\Debug\MyDealTask.Contracts.csprojResolveAssemblyReference.cache
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Contracts\bin\Debug\MyDealTask.Model.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Contracts\bin\Debug\MyDealTask.Model.pdb
