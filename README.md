@@ -1,6 +1,6 @@
 # MyDealTask
 
-Architecture .net solution
+##Architecture .net solution
 
 The net solution architecture complies of separated projects that ensure a separation of concerns based on responsabilities. These projects are grouped in folders considering the responsabilities they share.
 
