@@ -1,0 +1,13 @@
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Business\bin\Debug\MyDealTask.Business.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Business\bin\Debug\MyDealTask.Business.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Business\bin\Debug\MyDealTask.Contracts.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Business\bin\Debug\MyDealTask.Model.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Business\bin\Debug\MyDealTask.Contracts.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Business\bin\Debug\MyDealTask.Model.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Business\obj\Debug\MyDealTask.Business.csprojResolveAssemblyReference.cache
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Business\obj\Debug\MyDealTask.Business.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Business\obj\Debug\MyDealTask.Business.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Business\bin\Debug\DependencyResolver.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Business\bin\Debug\Unity.Abstractions.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Business\bin\Debug\DependencyResolver.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Business\bin\Debug\Unity.Abstractions.pdb
