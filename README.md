@@ -1,14 +1,18 @@
 # MyDealTask
 
-## Architecture .net solution
+## .Net Solution Architecture
 
-The net solution architecture complies of separated projects that ensure a separation of concerns based on responsabilities. These projects are grouped in folders considering the responsabilities they share.
+The architecture complies of separated projects that ensure a separation of concerns based on responsabilities. These projects are then grouped in folders considering the responsabilities they share and numbered in order of access (UI->database).
+
+There is a folder Common which contains the elements that are used across the whole stack such as contracts, models, etc.
 
 ## Entity Framework Database first
 
 Entity Framework 6 is being used as the solution ORM. The Model, Repositories and repositories interfaces are being auto generated from the EDMX using text templates which have been modified to deliver these different structures.
 
 The model, which is being auto generated, include serialization and validation attributes and is included in the Model project which is used across the solution.
+
+The data access repositories are implementing it's own interface in order to be injected as a dependency. Also they inherit from the IRepository interface in order for them to have all the repository access methods. These although are implemented in the BaseRepository generically.
 
 ## Dependency injection using unity
 
