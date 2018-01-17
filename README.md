@@ -18,7 +18,7 @@ For the injection of the repositories the implemented interfaces in each reposit
 
 ## TDD for business logic processor
 
-The logic behind the PNL processing has been implemented using TDD. The test cases were written in order to comply with the validation of each line and the result. 
+The logic behind the PNL processing has been implemented using TDD. The test cases were written in order to comply with the validation of each line and the result. Regular expressions were used to validate and process each line of the PNL, which is passed as a string reader and read line per line. The process file method defined in the interface returns a list of generic type which is then implemeted to return a list of the model defined.
 
 By using this approach when testing the sumited test data incured in an error parsing one of the lines which had a differnt format from the others. This case was considered an error and was remediated by throwing an exception that indicates the line number and content.
 
@@ -97,3 +97,5 @@ public IHttpActionResult Post(string applicationId, string documentCategory, str
         }
 
 ## Angular client 1-5 material design, bootstrap
+
+The
