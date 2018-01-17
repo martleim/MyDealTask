@@ -4,7 +4,7 @@
 
 The net solution architecture complies of separated projects that ensure a separation of concerns based on responsabilities. These projects are grouped in folders considering the responsabilities they share.
 
-## EF6 Database first
+## Entity Framework Database first
 
 Entity Framework 6 is being used as the solution ORM. The Model, Repositories and repositories interfaces are being auto generated from the EDMX using text templates which have been modified to deliver these different structures.
 
