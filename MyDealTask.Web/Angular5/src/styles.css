@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+/*@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";*/
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+body {
+    font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+    margin: 0;
+}
+
+app-navbar .docs-navbar, app-navbar .docs-navbar-header {
+    background: #673ab7;
+}
+
+.form-field-container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    margin: 0;
+    padding: 0;
+}
+.menu li a{    
+    box-sizing: border-box;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 47px;
+    text-decoration: none;
+    transition: all .3s;
+    padding: 0 16px;
+    position: relative;
+    min-width: 150px;
+}
+
+.main-card {
+  width: 400px;
+  margin:auto;
+}

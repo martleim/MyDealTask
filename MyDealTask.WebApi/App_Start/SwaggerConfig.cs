@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using MyDealTask.WebApi;
 using Swagger.Net.Application;
 using Swagger.Net;
+using MyDealTask.WebApi.Helpers;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -114,6 +115,9 @@ namespace MyDealTask.WebApi
                         //
                         //c.IncludeXmlComments(AppDomain.CurrentDomain.BaseDirectory + "file.ext");
                         c.IncludeAllXmlComments(thisAssembly, AppDomain.CurrentDomain.BaseDirectory);
+
+                        c.OperationFilter<ImportFileParamType>();
+
 
                         // Swagger-Net makes a best attempt at generating Swagger compliant JSON schemas for the various types
                         // exposed in your API. However, there may be occasions when more control of the output is needed.

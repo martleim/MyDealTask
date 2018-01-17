@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DependencyResolver.cs" />
+    <Compile Include="PNLFileDataLogic.cs" />
     <Compile Include="PNLFileProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

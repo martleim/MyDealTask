@@ -16,7 +16,7 @@ namespace MyDealTask.Contracts
     using System.Text;
     using System.Threading.Tasks;
     
-    public interface PassengerRecordRepository : IRepository<PassengerRecord> 
+    public interface IPassengerRecordRepository : IRepository<PassengerRecord> 
     {
     	
     }

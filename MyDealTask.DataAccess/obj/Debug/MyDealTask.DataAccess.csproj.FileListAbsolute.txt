@@ -14,3 +14,7 @@ E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DataAccess\bin\Debug\EntityF
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DataAccess\obj\Debug\MyDealTask.DataAccess.csprojResolveAssemblyReference.cache
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DataAccess\obj\Debug\MyDealTask.DataAccess.dll
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DataAccess\obj\Debug\MyDealTask.DataAccess.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DataAccess\bin\Debug\DependencyResolver.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DataAccess\bin\Debug\Unity.Abstractions.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DataAccess\bin\Debug\DependencyResolver.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DataAccess\bin\Debug\Unity.Abstractions.pdb

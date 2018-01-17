@@ -19,8 +19,7 @@ namespace MyDealTask.Model
     {
         
     	[Key()]
-    	[Required(ErrorMessage = "Id is required.")]
-    	[DataMember(Name = "Id", IsRequired = true)]
+    	[DataMember(Name = "Id")]
     	public int Id { get; set; }
         
     	[StringLength(30, ErrorMessage = "FirstName has a maximum length of 30.")]
@@ -37,7 +36,7 @@ namespace MyDealTask.Model
     	[DataMember(Name = "RecordLocatorId", IsRequired = true)]
     	public int RecordLocatorId { get; set; }
         
-    	[StringLength(22, ErrorMessage = "LineData has a maximum length of 22.")]
+    	[StringLength(50, ErrorMessage = "LineData has a maximum length of 50.")]
     	[DataMember(Name = "LineData")]
     	public string LineData { get; set; }
     

@@ -16,7 +16,7 @@ namespace MyDealTask.Contracts
     using System.Text;
     using System.Threading.Tasks;
     
-    public interface RecordLocatorRepository : IRepository<RecordLocator> 
+    public interface IRecordLocatorRepository : IRepository<RecordLocator> 
     {
     	
     }

@@ -56,11 +56,19 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -167,14 +175,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
-    <None Include="App_Start\UnityMvcActivator.cs_" />
     <Compile Include="App_Start\UnityResolver.cs" />
-    <None Include="App_Start\UnityWebApiActivator.cs_" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PassengerListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\BaseApiController.cs" />
+    <Compile Include="Helpers\ImportFileParamType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -203,9 +211,17 @@
       <Project>{c3dce482-5641-4009-b2bd-dcd2a5d523bd}</Project>
       <Name>MyDealTask.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyDealTask.DataAccess\MyDealTask.DataAccess.csproj">
+      <Project>{98053d65-e5d7-4ebe-9ba2-df148c2b10b0}</Project>
+      <Name>MyDealTask.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyDealTask.DependencyResolver\MyDealTask.DependencyResolver.csproj">
       <Project>{da372996-686c-47e1-aa3a-8bb45c87731f}</Project>
       <Name>MyDealTask.DependencyResolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyDealTask.Helpers\MyDealTask.Helpers.csproj">
+      <Project>{a967927c-9a78-4711-b111-af6011738578}</Project>
+      <Name>MyDealTask.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyDealTask.Model\MyDealTask.Model.csproj">
       <Project>{17750e02-0bc0-4bcc-9607-af9c36f29674}</Project>

@@ -12,13 +12,13 @@ using System.Text.RegularExpressions;
 namespace MyDealTask.Business
 {
 
-    public class PNLFileProcessor : IPNLProcessor<List<PassengerRecord>, PassengerRecord>
+    public class PNLFileProcessor : IPNLProcessor<PNLFile, PassengerRecord, string>
     {
 
         const string NameRegEx = @"1([A-Z])\w+\/([A-Z])\w+-([A-Z])\w+ .([L])/([A-Z])\w+";
         const string CodeRegEx = @".R\/(\w{4}) (\w{3}) (\w{13})\/1";
 
-        const string NameSeparatorRegEx = @"(1)|(\/)|(-)|(.[L]\/)";
+        const string NameSeparatorRegEx = @"(1)|(\/)|(-)|( .[L]\/)";
 
         public bool CheckCodeLine(string line)
         {
@@ -41,9 +41,10 @@ namespace MyDealTask.Business
             return new PassengerRecord() { FirstName = processed[4], LastName = processed[2], RecordLocator = new RecordLocator() { Code = processed[8] } };
         }
 
-        public List<PassengerRecord> ProcessPNL(StringReader list)
+        public PNLFile ProcessPNL(StringReader list)
         {
-            List<PassengerRecord> PRList = new List<PassengerRecord>();
+            List<PassengerRecord> PNList = new List<PassengerRecord>();
+            PNLFile file = new PNLFile();
             int lineNumber = 1;
             string line = string.Empty;
             line = list.ReadLine();
@@ -53,10 +54,10 @@ namespace MyDealTask.Business
                 {
                     if (CheckNameLine(line))
                     {
-                        PRList.Add( ProcessNameLine(line));
+                        PNList.Add( ProcessNameLine(line));
                     }else if (CheckCodeLine(line))
                     {
-                        PRList.Last().LineData = ProcessCodeLine(line);
+                        PNList.Last().LineData = ProcessCodeLine(line);
                     }else
                     {
                         throw new Exception(string.Format("The file has an error on line {0}:{1}", lineNumber, line));
@@ -65,7 +66,16 @@ namespace MyDealTask.Business
                 line = list.ReadLine();
                 lineNumber++;
             }
-            return PRList;
+
+            file.RecordLocator = PNList.Select(pr => pr.RecordLocator)
+                .GroupBy(rl=>rl.Code)
+                .Select(g=>g.First()).ToList();
+
+            file.RecordLocator.ToList().ForEach(rl => {
+                rl.PassengerRecord = PNList.Where(pn => pn.RecordLocator.Code == rl.Code).ToList();
+            });
+
+            return file;
         }
         
     }

@@ -16,6 +16,31 @@ if (!typeMapper.VerifyCaseInsensitiveTypeUniqueness(typeMapper.GetAllGlobalItems
     return string.Empty;
 }
 
+fileManager.StartNewFile("DependencyResolver.cs");
+#>
+using MyDealTask.DependencyResolver;
+using MyDealTask.Contracts;
+using System.ComponentModel.Composition;
+<#
+BeginNamespace(code);
+#>
+	[Export(typeof(IComponent))]
+    public class DependencyResolver : IComponent
+    {
+        public void SetUp(IRegisterComponent registerComponent)
+        {
+			<#
+			foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)) {
+			#>
+	registerComponent.RegisterType<I<#=entity.Name#>Repository, <#=entity.Name#>Repository>();
+			<#
+			}
+			#>
+}
+    }
+<#
+
+EndNamespace(code);
 WriteHeader(codeStringGenerator, fileManager);
 
 foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection))
@@ -38,7 +63,7 @@ foreach (var complex in typeMapper.GetItemsToGenerate<ComplexType>(itemCollectio
     BeginNamespace(code);
 #>
 <#=codeStringGenerator.UsingDirectives(inHeader: false, includeCollections: false)#>
-<#=Accessibility.ForType(complex)#> partial class <#=code.Escape(complex)#>Repository : BaseRepository<<#=code.Escape(complex)#>>
+<#=Accessibility.ForType(complex)#> partial class <#=code.Escape(complex)#>Repository : BaseRepository<<#=code.Escape(complex)#>>, I<#=code.Escape(complex)#>Repository
 {
 <#
     var complexProperties = typeMapper.GetComplexProperties(complex);
@@ -239,7 +264,7 @@ public class CodeStringGenerator
     {
         return string.Format(
             CultureInfo.InvariantCulture,
-            "{0} {1}partial class {2}Repository : BaseRepository<{2}> {3}",
+            "{0} {1}partial class {2}Repository : BaseRepository<{2}>, I{2}Repository {3}",
             Accessibility.ForType(entity),
             _code.SpaceAfter(_code.AbstractOption(entity)),
             _code.Escape(entity),
@@ -347,12 +372,8 @@ public class CodeStringGenerator
     public string UsingDirectives(bool inHeader, bool includeCollections = true)
     {
 		string[] usings = {
-			"using MyDealTask.DataModel;",
-			"using MyDealTask.Model;",
-			"using System.Collections.Generic;",
-			"using System.Linq;",
-			"using System.Text;",
-			"using System.Threading.Tasks;"
+			"using MyDealTask.Contracts;",
+			"using MyDealTask.Model;"
 		};
         return inHeader == string.IsNullOrEmpty(_code.VsNamespaceSuggestion())
             ? string.Format(

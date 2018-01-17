@@ -11,3 +11,7 @@ E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\MyDealTask.Mo
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\obj\Debug\MyDealTask.Test.csprojResolveAssemblyReference.cache
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\obj\Debug\MyDealTask.Test.dll
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\obj\Debug\MyDealTask.Test.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\DependencyResolver.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\Unity.Abstractions.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\DependencyResolver.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.Test\bin\Debug\Unity.Abstractions.pdb

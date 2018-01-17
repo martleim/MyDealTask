@@ -26,7 +26,6 @@ namespace MyDealTask.DataModel
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__RefactorLog> C__RefactorLog { get; set; }
         public virtual DbSet<PassengerRecord> PassengerRecord { get; set; }
         public virtual DbSet<PNLFile> PNLFile { get; set; }
         public virtual DbSet<RecordLocator> RecordLocator { get; set; }

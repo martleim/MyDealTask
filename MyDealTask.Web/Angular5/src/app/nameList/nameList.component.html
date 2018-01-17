@@ -1,0 +1,45 @@
+
+<div class="form-field-container">
+    <mat-tab-group>
+        <mat-tab label="Files Uploaded">
+
+            <mat-list>
+                <h3 mat-subheader>File Uploaded</h3>
+                <mat-list-item *ngFor="let element of values">
+                    {{ element.name }}
+                    <p *ngFor="let rd of element.recordLocator">{{rd.code}}:{{rd.passengerRecord.length}}, </p>
+                    <button mat-icon-button (click)="deleteElement(element)">
+                        <mat-icon>delete_forever</mat-icon>
+                    </button>
+                </mat-list-item>
+            </mat-list>
+
+
+        </mat-tab>
+        <mat-tab label="File Upload">
+            <div>
+                <textarea matInput placeholder="Textarea" [(ngModel)]="pnlFileContent" style="width:50%;min-height:200px"></textarea>
+                <div style="width:50%;min-height:200px; overflow:auto">
+
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <h3>Select files</h3>
+                <label class="upload-button">
+                    <input type="file" ngFileSelect [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput">
+                    or choose file(s)
+                </label>
+
+                <button type="button" class="start-upload-btn" (click)="startUpload()">
+                    Upload
+                </button>
+
+            </div>
+
+        </mat-tab>
+    </mat-tab-group>
+
+
+
+</div>

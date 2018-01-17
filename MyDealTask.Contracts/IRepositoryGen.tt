@@ -240,7 +240,7 @@ public class CodeStringGenerator
     {
         return string.Format(
             CultureInfo.InvariantCulture,
-            "{0} {1}interface {2}Repository : IRepository<{2}> {3}",
+            "{0} {1}interface I{2}Repository : IRepository<{2}> {3}",
             Accessibility.ForType(entity),
             _code.SpaceAfter(_code.AbstractOption(entity)),
             _code.Escape(entity),

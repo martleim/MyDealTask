@@ -1,38 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="MyDealTaskDataModelStoreContainer" CdmEntityContainer="MyDealTaskEntities">
-    <EntitySetMapping Name="C__RefactorLog">
-      <EntityTypeMapping TypeName="MyDealTaskDataModel.C__RefactorLog">
-        <MappingFragment StoreEntitySet="__RefactorLog">
-          <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PassengerRecord">
       <EntityTypeMapping TypeName="MyDealTaskDataModel.PassengerRecord">
         <MappingFragment StoreEntitySet="PassengerRecord">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="RecordLocatorId" ColumnName="RecordLocatorId" />
           <ScalarProperty Name="LineData" ColumnName="LineData" />
+          <ScalarProperty Name="RecordLocatorId" ColumnName="RecordLocatorId" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PNLFile">
       <EntityTypeMapping TypeName="MyDealTaskDataModel.PNLFile">
         <MappingFragment StoreEntitySet="PNLFile">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="File" ColumnName="File" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="RecordLocator">
       <EntityTypeMapping TypeName="MyDealTaskDataModel.RecordLocator">
         <MappingFragment StoreEntitySet="RecordLocator">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PNLFileId" ColumnName="PNLFileId" />
           <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="PNLFileId" ColumnName="PNLFileId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -39,6 +39,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
-    <Compile Include="C__RefactorLogRepository.cs">
+    <Compile Include="DependencyResolver.cs">
       <DependentUpon>Repository.tt</DependentUpon>
     </Compile>
     <Compile Include="PassengerRecordRepository.cs">
@@ -86,6 +87,10 @@
     <ProjectReference Include="..\MyDealTask.DataModel\MyDealTask.DataModel.csproj">
       <Project>{1e6edca6-24db-4b15-a1b2-ad3cc4d973f2}</Project>
       <Name>MyDealTask.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyDealTask.DependencyResolver\MyDealTask.DependencyResolver.csproj">
+      <Project>{da372996-686c-47e1-aa3a-8bb45c87731f}</Project>
+      <Name>MyDealTask.DependencyResolver</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyDealTask.Model\MyDealTask.Model.csproj">
       <Project>{17750e02-0bc0-4bcc-9607-af9c36f29674}</Project>

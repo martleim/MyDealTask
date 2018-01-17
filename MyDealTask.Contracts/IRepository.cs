@@ -17,7 +17,9 @@ namespace MyDealTask.Contracts
         void Update(params T[] items);
         void Remove(params T[] items);
         int ExecuteSqlCommand(string sql, params object[] parameters);
+        void Add(T item, Action<T> preAdd=null, Action<T> postAdd=null);
+
     }
-    
+
 
 }

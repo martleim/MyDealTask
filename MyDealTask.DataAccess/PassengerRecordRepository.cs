@@ -10,14 +10,10 @@
 namespace MyDealTask.DataAccess
 {
     using System;
-    using MyDealTask.DataModel;
+    using MyDealTask.Contracts;
     using MyDealTask.Model;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     
-    public partial class PassengerRecordRepository : BaseRepository<PassengerRecord> 
+    public partial class PassengerRecordRepository : BaseRepository<PassengerRecord>, IPassengerRecordRepository 
     {
     	public PassengerRecordRepository(){}
     }

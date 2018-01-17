@@ -1,4 +1,6 @@
 ﻿using MyDealTask.DependencyResolver;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,14 @@ namespace MyDealTask.WebApi
             ComponentLoader.LoadContainer(container, ".\\bin", "MyDealTask.*.dll");
             config.DependencyResolver = new UnityResolver(container);
 
+            //JSON FORMATTER
+            config.Formatters.JsonFormatter.SerializerSettings = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore,
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects
+            };
+
+            //ENABLE CORS
+            config.EnableCors();
 
             // Web API routes
             config.MapHttpAttributeRoutes();

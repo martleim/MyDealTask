@@ -89,3 +89,12 @@ E:\Development\net\MyDealTask\MyDealTask\MyDealTask.WebApi\bin\Unity.Mvc.dll
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.WebApi\bin\WebActivatorEx.dll
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.WebApi\bin\Unity.AspNet.WebApi.xml
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.WebApi\bin\Unity.Mvc.xml
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.WebApi\bin\MyDealTask.DataAccess.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.WebApi\bin\MyDealTask.DataModel.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.WebApi\bin\MyDealTask.DataAccess.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.WebApi\bin\MyDealTask.DataModel.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.WebApi\bin\MyDealTask.Helpers.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.WebApi\bin\MyDealTask.Helpers.pdb
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.WebApi\bin\System.Web.Cors.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.WebApi\bin\System.Web.Http.Cors.dll
+E:\Development\net\MyDealTask\MyDealTask\MyDealTask.WebApi\bin\System.Web.Http.Cors.xml

@@ -14,6 +14,5 @@ E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DependencyResolver\bin\Debug
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DependencyResolver\bin\Debug\Unity.Interception.pdb
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DependencyResolver\bin\Debug\Unity.Interception.Configuration.pdb
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DependencyResolver\bin\Debug\Unity.ServiceLocation.pdb
-E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DependencyResolver\obj\Debug\MyDealTask.DependencyResolver.csprojResolveAssemblyReference.cache
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DependencyResolver\obj\Debug\DependencyResolver.dll
 E:\Development\net\MyDealTask\MyDealTask\MyDealTask.DependencyResolver\obj\Debug\DependencyResolver.pdb

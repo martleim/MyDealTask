@@ -1,47 +1,86 @@
 ﻿using MyDealTask.Contracts;
 using MyDealTask.Model;
-using System;
+using MyDealTask.WebApi.Helpers;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace MyDealTask.WebApi.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PassengerListController : ApiController
     {
-        private IPNLProcessor<System.Collections.Generic.List<PassengerRecord>, PassengerRecord> Processor;
-        public PassengerListController(IPNLProcessor<System.Collections.Generic.List<PassengerRecord>, PassengerRecord> processor) {
+
+        private IPNLProcessor<PNLFile, PassengerRecord, string> Processor;
+        private IPNLFileDataLogic PNLFileDataLogic;
+
+        public PassengerListController(IPNLProcessor<PNLFile, PassengerRecord, string> processor,
+            IPNLFileDataLogic pNLFileDataLogic) {
+
             Processor = processor;
+            PNLFileDataLogic = pNLFileDataLogic;
         }
 
-        // GET api/values
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(PNLFileDataLogic.GetAll());
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
-        }
-
-        // POST api/values
-        public void Post([FromBody]string value)
-        {
-            var waky=0;
+            return Ok(PNLFileDataLogic.GetAll().First(pnlf=>pnlf.Id==id));
         }
 
         // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        public IHttpActionResult Put(int id, PNLFile value)
         {
+            value.Id = id;
+            PNLFileDataLogic.Update(value);
+            return Ok();
         }
 
         // DELETE api/values/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+            PNLFileDataLogic.Remove(new PNLFile() { Id = id });
+            return Ok();
         }
+
+        // POST api/values
+
+        [ImportFileParamType.SwaggerFormAttribute("TXT", "Upload pdf file")]
+        public IHttpActionResult Post()
+        {
+            var files = GetFiles();
+            if (files != null && files.Count > 0)
+            {
+                StringReader sr = new StringReader(new StreamReader(files.Get(0).InputStream).ReadToEnd());
+                var processed = Processor.ProcessPNL(sr);
+                PNLFileDataLogic.SavePnlFile(processed);
+                processed.File = new BinaryReader(files.Get(0).InputStream).ReadBytes(files.Get(0).ContentLength);
+                return Ok(processed.RecordLocator.GroupBy(rl=>rl.Code).Select(g=> new {
+                    Code = g.Key,
+                    PassengerRecords = g.SelectMany(g2=>g2.PassengerRecord)
+                }));
+            }
+            return Ok();
+        }
+
+        private HttpFileCollection GetFiles()
+        {
+
+            var httpRequest = HttpContext.Current.Request;
+            if (httpRequest.Files.Count < 1)
+            {
+                return null;
+            }
+
+            return httpRequest.Files;
+        }
+        
     }
 }

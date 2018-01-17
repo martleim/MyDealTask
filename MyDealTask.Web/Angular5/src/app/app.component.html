@@ -1,0 +1,28 @@
+
+<mat-toolbar color="primary" class="mat-elevation-4">
+    <button type="button" mat-button (click)="drawer.toggle()">|||
+        
+      </button>
+</mat-toolbar>
+
+
+
+<mat-sidenav-container>  
+  <mat-drawer-container class="example-container" style="height:900px" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+      
+      <ul class="menu">
+          <li> <a routerLink="/">Home</a> </li>
+          <li> <a routerLink="nameList/">PNL Manger</a> </li>
+      </ul>
+      
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+      
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-drawer-container>
+</mat-sidenav-container>

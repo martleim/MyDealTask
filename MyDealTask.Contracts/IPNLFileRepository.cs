@@ -16,7 +16,7 @@ namespace MyDealTask.Contracts
     using System.Text;
     using System.Threading.Tasks;
     
-    public interface PNLFileRepository : IRepository<PNLFile> 
+    public interface IPNLFileRepository : IRepository<PNLFile> 
     {
     	
     }

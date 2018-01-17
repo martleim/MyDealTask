@@ -82,7 +82,7 @@ namespace MyDealTask.Test
         public void PNL_InValid_IsProcessedCorrectly()
         {
             var logic = new PNLFileProcessor();
-            List<PassengerRecord> result=null;
+            PNLFile result=null;
             try
             {
                 result = logic.ProcessPNL(new StringReader(inValidList));
@@ -95,7 +95,7 @@ namespace MyDealTask.Test
         {
             var logic = new PNLFileProcessor();
             var result = logic.ProcessPNL(new StringReader(validList));
-            Assert.AreEqual(result.Count, 6);
+            Assert.AreEqual(result.RecordLocator.Count, 4);
         }
     }
 }

@@ -35,16 +35,23 @@ namespace MyDealTask.DataAccess
             }
         }
 
-        public BaseRepository(DbContext ctx = null, bool lazyLoading=true)
+        private bool lazyLoading;
+        public BaseRepository(DbContext ctx = null, bool _lazyLoading=true)
         {
+            lazyLoading = _lazyLoading;
             if (ctx != null)
             {
                 context = ctx;
             }
             else
             {
-                context = new MyDealTaskEntities();
+                initialize();
             }
+            context.Configuration.LazyLoadingEnabled = lazyLoading;
+        }
+
+        private void initialize() {
+            context = new MyDealTaskEntities();
             context.Configuration.LazyLoadingEnabled = lazyLoading;
         }
 
@@ -140,7 +147,7 @@ namespace MyDealTask.DataAccess
                     context.Entry(item).Property(field).IsModified = true;
                 }
             }
-            context.SaveChanges();
+            SaveChanges();
         }
 
         public virtual void Remove(params T[] items)
@@ -183,7 +190,10 @@ namespace MyDealTask.DataAccess
 
             try
             {
-                return context.SaveChanges();
+                var ret = context.SaveChanges();
+                context.Dispose();
+                initialize();
+                return ret;
             }
             catch (DbUpdateException updateException)
             {
@@ -227,7 +237,19 @@ namespace MyDealTask.DataAccess
             throw new Exception("Unspecified Error",exception);
         }
 
+        public void Add(T item, Action<T> preAdd = null, Action<T> postAdd = null)
+        {
+            if (preAdd != null)
+                preAdd(item);
 
+            context.Entry(item).State = EntityState.Added;
+
+            if (postAdd!=null)
+                postAdd(item);
+
+            SaveChanges();
+            
+        }
     }
 
     public class RepositoryException : Exception {

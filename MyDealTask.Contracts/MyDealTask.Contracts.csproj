@@ -40,12 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IC__RefactorLogRepository.cs">
-      <DependentUpon>IRepositoryGen.tt</DependentUpon>
-    </Compile>
     <Compile Include="IPassengerRecordRepository.cs">
       <DependentUpon>IRepositoryGen.tt</DependentUpon>
     </Compile>
+    <Compile Include="IPNLFileDataLogic.cs" />
     <Compile Include="IPNLFileProcessor.cs" />
     <Compile Include="IPNLFileRepository.cs">
       <DependentUpon>IRepositoryGen.tt</DependentUpon>
