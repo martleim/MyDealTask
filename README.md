@@ -28,6 +28,10 @@ By using this approach when testing the sumited test data incured in an error pa
 
 ## Web Api - Swagger
 
+The web api task is to work as an HTTP rest interface to upload the NPLs and ........................
+
+Swagger is being used as a means to test the api as well to expose the interface methods, parameters and response to the developers in order to implement clients that use it.
+
 
 public class ImportFileParamType : IOperationFilter
     {
@@ -100,6 +104,8 @@ public IHttpActionResult Post(string applicationId, string documentCategory, str
             return httpRequest.Files;
         }
 
-## Angular client 1-5 material design, bootstrap
+## Angular 1-5 material design/bootstrap clients
+
+
 
 The
