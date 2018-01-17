@@ -2,7 +2,7 @@
 
 ## .Net Solution Architecture
 
-The architecture complies of separated projects that ensure a separation of concerns based on responsabilities. These projects are then grouped in folders considering the responsabilities they share and numbered in order of access (UI->database).
+The architecture complies of a set of projects that ensure a separation of concerns based on responsabilities. These projects are then grouped in folders considering the duties they share and numbered in order of access (UI->database).
 
 There is a folder Common which contains the elements that are used across the whole stack such as contracts, models, etc.
 
