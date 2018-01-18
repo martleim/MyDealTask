@@ -28,12 +28,22 @@ By using this approach when testing the sumited test data incured in an error pa
 
 ## Web Api - Swagger
 
-The web api task is to work as an HTTP rest interface to upload the NPLs and ........................
+The web api task is to work as an HTTP rest interface to upload the NPLs and process these. The api also contains methods to delete, update and get (all or single) uploaded files via HTTP verbs (GET,POST,PUT,DELETE).
 
-Swagger is being used as a means to test the api as well to expose the interface methods, parameters and response to the developers in order to implement clients that use it.
+All the errors are handled via a filter that catches the exception and sends it to the client as an internal server error http response header (500). At the moment that is the only error the api is returning, in case authentication was implemented when unauthorized a 401 error could be thrown to be catched on the client side, same thing with any other possible error that might happen. 
 
-## Angular 1-5 material design/bootstrap clients
+Swagger is being used as a means to test the api as well to expose the interface methods, parameters and response to the developers in order to implement clients that use it. To access the swagger UI it is needed to add swagger to the route (for example http://localhost:8080/swagger).
 
+## AngularJS bootstrap / Angular5 material design clients
 
+I wanted to implement 2 clients for the solution but after finishing the angularJS client didn't have much time left to finish the angular 5 client. The former was completed with all the requirements but the second one is just a simple prototype to upload files process them and list them to be deleted.
 
-The
+### AngularJS bootstrap
+
+The AngularJS client uses angular bootstrap as UI framework. To install all the dependencies npm must be installed so as to call npm install and get all the js/css/assets required by the application.
+
+This client lists all the uploaded files with the details, allows to upload a new file which can be modified inside the application and then uploaded or download the modifications made. After the file is uploaded the contents are listed in the modal and the records will be filtered with a regular expression that is written in the filtering field.
+
+### Angular5 material design
+
+The angular material 5 has the basic functionality that allows to upload a file and delete files which have been uploaded and saved to the database. The client could not be finished and it needs npm to install dependencies and to run angular client command ng serve from the project folder in order to serve the application.
