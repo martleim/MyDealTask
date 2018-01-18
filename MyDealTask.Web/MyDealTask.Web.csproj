@@ -68,10 +68,28 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularJS\app\app.js" />
+    <Content Include="AngularJS\app\components\nameListEdit\nameListEdit.ctrl.js" />
+    <Content Include="AngularJS\app\components\nameListEdit\nameListEdit.tpl.html" />
+    <Content Include="AngularJS\app\components\nameListUpload\nameListUpload.ctrl.js" />
+    <Content Include="AngularJS\app\components\nameListUpload\nameListUpload.tpl.html" />
+    <Content Include="AngularJS\app\config.js" />
+    <Content Include="AngularJS\app\partials\modal.html" />
+    <Content Include="AngularJS\app\sections\home\home.ctrl.js" />
+    <Content Include="AngularJS\app\sections\home\home.tpl.html" />
+    <Content Include="AngularJS\app\sections\nameList\nameList.ctrl.js" />
+    <Content Include="AngularJS\app\sections\nameList\nameList.tpl.html" />
+    <Content Include="AngularJS\app\services\dataService.js" />
+    <Content Include="AngularJS\app\services\modalService.js" />
+    <Content Include="AngularJS\app\services\nameListService.js" />
+    <Content Include="AngularJS\app\services\validationService.js" />
+    <Content Include="AngularJS\index.html" />
     <Content Include="packages.config" />
     <Content Include="Angular5\src\assets\.gitkeep" />
     <Content Include="Angular5\src\tsconfig.app.json" />
     <Content Include="Angular5\src\tsconfig.spec.json" />
+    <Content Include="AngularJS\package-lock.json" />
+    <Content Include="AngularJS\package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -95,8 +113,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AngularJS\" />
-    <Folder Include="JQuery\" />
+    <Folder Include="AngularJS\css\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Angular5\src\app\nameList\nameList.component.spec.ts" />

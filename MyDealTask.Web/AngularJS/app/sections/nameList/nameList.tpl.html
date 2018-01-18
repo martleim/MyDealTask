@@ -1,0 +1,42 @@
+<div class="section view indent">
+    <div class="container">
+        <header>
+                <h3>Name Lists</h3>
+
+            <button type="button" class="btn btn-primary" style="float:right" ng-click="uploadList()">upload List</button>
+        </header>
+        <br />
+        <br />
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th style="width:15%">Id</th>
+                    <th style="width:30%">Record Locator Codes</th>
+                    <th style="width:45%">Names</th>
+                    <th style="width:10%">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="file in pnlFiles">
+                    <td>{{file.id}}</td>
+                    <td>
+                        <span class="badge badge-primary" ng-repeat="rl in file.recordLocator">{{rl.code}}</span>
+                    </td>
+                    <td>
+                        <div>
+                            <span class="badge badge-primary">{{getNames(file).length}}</span>
+                            <button type="button" class="btn btn-secondary btn-sm" ng-click="file.open=!file.open">{{ (!file.open)?"+":"-" }}</button>
+                            <ul style="width:  0px;">
+                                <li style="list-style-type: none;" ng-if="file.open" ng-repeat="name in getNames(file)"><span class="badge badge-secondary">{{name.firstName}} {{name.lastName}}</span></li>
+                            </ul>
+                            
+                        </div>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-secondary btn-sm" ng-click="deleteFile(file)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

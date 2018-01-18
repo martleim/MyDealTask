@@ -1,0 +1,48 @@
+<div class="view modalContainer">
+
+    <div class="container" ng-controller="NameListUploadController">
+        <header>
+            <h3>File Upload</h3>
+
+            
+        </header>
+        <form name="upload" class="form" ng-if="!uploadedData" >
+            <div>
+                <input type="file" name="file" style="float:left" onchange="angular.element(this).scope().selectedFile(this)" />
+            </div>
+            
+            <button type="button" class="btn btn-primary" style="float:right" ng-click="editList()" ng-disabled="!file">Edit</button>
+            <button type="button" class="btn btn-primary" style="float:right" ng-click="uploadFile()" ng-disabled="!file">upload file</button>
+        </form>
+
+
+
+        <br />
+        <br />
+        <ul class="nav nav-pills" style="float:left" ng-if="uploadedData">
+            <li class="active"><h5>Filters</h5></li>
+            <li>
+                <input type="text" name="Name" class="form-control" placeholder="filter by regex" ng-model="filterOptions.value" />
+            </li>
+        </ul>
+        <table ng-if="uploadedData" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <tbody>
+                <tr ng-repeat="rl in uploadedData  | customfilter:filterOptions">
+                    <td>
+                    {{rl.code}}
+                    <ul>
+                        <li ng-repeat="pr in rl.passengerRecords  | customfilter:filterOptions">
+                            {{pr.firstName}} {{pr.lastName}}
+                        </li>
+                    </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div>
+        </div>
+        <button ng-click="$close()" type="submit" class="btn btn-secondary">Cancel</button>
+        <br />
+    </div>
+</div>

@@ -1,4 +1,5 @@
 ﻿using MyDealTask.DependencyResolver;
+using MyDealTask.WebApi.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
@@ -36,6 +37,9 @@ namespace MyDealTask.WebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            // Error handling
+            config.Filters.Add(new CatchAllExceptionFilterAttribute());
         }
     }
 }

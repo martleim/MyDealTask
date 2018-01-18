@@ -1,0 +1,15 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "angular": "^1.6.8",
+    "angular-agility": "^0.8.40",
+    "angular-animate": "^1.6.8",
+    "angular-bootstrap": "^0.12.2",
+    "angular-route": "^1.6.8",
+    "animate.css": "^3.5.2",
+    "bootstrap": "^3.3.7",
+    "fontawesome": "^4.7.2",
+    "jquery": "^3.2.1"
+  }
+}
