@@ -1,40 +1,42 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition.Hosting;
-using System.ComponentModel.Composition.Primitives;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Unity;
-using Unity.Lifetime;
+using System.Runtime.Loader;
+using System.IO;
+using Microsoft.Extensions.DependencyInjection;
+using System.Composition.Hosting;
+using System.Composition;
 
-namespace MyDealTask.DependencyResolver
+
+namespace GenericAirways.DependencyResolver
 {
     public class ComponentLoader
     {
-        public static void LoadContainer(IUnityContainer container, string path, string pattern)
+        public static void LoadContainer(/*IUnityContainer container, */string path, string pattern)
         {
-            var dirCat = new DirectoryCatalog(path, pattern);
-            var importDef = BuildImportDefinition();
+
+            var assemblies = Directory.GetFiles( path, pattern )
+                            .Select(  AssemblyLoadContext.Default.LoadFromAssemblyPath );
+
+            var configuration = new ContainerConfiguration().WithAssemblies( assemblies );
+            var container = configuration.CreateContainer();
+
+            
+            /*var dirCat = new DirectoryCatalog(path, pattern);*/
+            var importDef = (IComponent)_host.Value.GetExport( new CompositionContract( typeof( object ), typeof( IComponent ).Name ) );//BuildImportDefinition();*/
             try
             {
-                using (var aggregateCatalog = new AggregateCatalog())
+                IEnumerable<Export> exports = container.GetExports(importDef);
+                IEnumerable<IComponent> modules = exports.Select(export => export.Value as IComponent).Where(m => m != null);
+
+                var registerComponent = new RegisterComponent(container);
+                foreach (IComponent module in modules)
                 {
-                    aggregateCatalog.Catalogs.Add(dirCat);
-
-                    using (var componsitionContainer = new CompositionContainer(aggregateCatalog))
-                    {
-                        IEnumerable<Export> exports = componsitionContainer.GetExports(importDef);
-
-                        IEnumerable<IComponent> modules = exports.Select(export => export.Value as IComponent).Where(m => m != null);
-
-                        var registerComponent = new RegisterComponent(container);
-                        foreach (IComponent module in modules)
-                        {
-                            module.SetUp(registerComponent);
-                        }
-                    }
+                    module.SetUp(registerComponent);
                 }
             }
             catch (ReflectionTypeLoadException typeLoadException)
@@ -49,24 +51,25 @@ namespace MyDealTask.DependencyResolver
             }
         }
 
-        private static ImportDefinition BuildImportDefinition()
-        {
-            return new ImportDefinition(
-                def => true, typeof(IComponent).FullName, ImportCardinality.ZeroOrMore, false, false);
-        }
+        /*private static ImportDefinition<T> BuildImportDefinition(){
+            return (T)_host.Value.GetExport( new CompositionContract( typeof( object ), typeof( T ).Name ) );
+
+            //return new ImportDefinition( def => true, typeof(IComponent).FullName, ImportCardinality.ZeroOrMore, false, false);
+        }*/
     }
 
     internal class RegisterComponent : IRegisterComponent
     {
-        private readonly IUnityContainer _container;
+        private readonly IServiceCollection _services;
 
-        public RegisterComponent(IUnityContainer container)
+        public RegisterComponent(IServiceCollection services)
         {
-            this._container = container;
+            this._services = services;
             //Register interception behaviour if any
         }
 
-        public void RegisterType<TFrom, TTo>(bool withInterception = false) where TTo : TFrom
+        public void RegisterType<TFrom, TTo>(bool withInterception = false) where TTo : class, TFrom
+                                                                            where TFrom : class
         {
             if (withInterception)
             {
@@ -74,13 +77,15 @@ namespace MyDealTask.DependencyResolver
             }
             else
             {
-                this._container.RegisterType<TFrom, TTo>();
+                this._services.AddTransient<TFrom, TTo>();
             }
         }
 
-        public void RegisterTypeWithControlledLifeTime<TFrom, TTo>(bool withInterception = false) where TTo : TFrom
+        public void RegisterTypeWithControlledLifeTime<TFrom, TTo>(bool withInterception = false) where TTo : class, TFrom
+                                                                                                    where TFrom : class
         {
-            this._container.RegisterType<TFrom, TTo>(new ContainerControlledLifetimeManager());
+            //this._services.AddTransient<TFrom, TTo>();
+            //this._services.RegisterType<TFrom, TTo>(new ContainerControlledLifetimeManager());
         }
     }
 }
